@@ -20,7 +20,7 @@ export const Custom = createGlobalStyle`
   }
 
   a {
-    color: #1575d8;
+    color: #286fde;
   }
 
   p,
