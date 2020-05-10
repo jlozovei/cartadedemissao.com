@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import ReactGA from 'react-ga';
 
 import Container from 'components/Container';
 import Column from 'components/Column';
@@ -22,11 +23,20 @@ const App = () => {
   const onSubmit = (data) => {
     setUser({ ...data });
     setIsLetterVisible(true);
+
+    ReactGA.event({
+      category: 'Letter',
+      action: 'Created a model'
+    });
   };
 
   const handleLetterVisibility = (isVisible) => {
     setIsLetterVisible(isVisible);
   };
+
+  useEffect(() => {
+    ReactGA.pageview('/');
+  });
 
   return (
     <Container>
